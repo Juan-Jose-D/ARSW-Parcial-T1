@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.eci.arsw</groupId>
-	<artifactId>repaso</artifactId>
+	<artifactId>parcial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>repaso</name>
-	<description>Demo project for Spring Boot</description>
+	<name>parcial</name>
+	<description>Parcial primer tercio arsw</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -49,7 +49,7 @@
             <artifactId>spring-boot-maven-plugin</artifactId>
             <version>3.5.6</version>
             <configuration>
-                <mainClass>edu.eci.arsw.repaso.RepasoApplication</mainClass>
+                <mainClass>edu.eci.arsw.parcial.Parcial</mainClass>
             </configuration>
         </plugin>
     </plugins>

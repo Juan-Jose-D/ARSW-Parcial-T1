@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RepasoApplication {
+public class Parcial {
     public static void main(String[] args) {
-        SpringApplication.run(RepasoApplication.class, args);
+        SpringApplication.run(Parcial.class, args);
     }
 }

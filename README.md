@@ -7,9 +7,17 @@
 
 ## Descripción General
 
-Proyecto de repaso para el primer parcial de Arquitectura de Software (ARSW).
+Proyecto del primer parcial de Arquitectura de Software (ARSW).
 
 ---
+
+El proyecto llama a una API externa y puede enviar diferentes parámetros. Como el identificador de una acción, como "IBM".
+Esto se hace mediante un filtro en el app.js, la idea es enviar por parámetro a la API lo que la persona pone en la página web, es extensible para todos los parámetros que sean necesarios.
+
+
+
+
+![alt text](/img/image.png)
 
 
 ## Ejecución del proyecto
@@ -21,8 +29,8 @@ Proyecto de repaso para el primer parcial de Arquitectura de Software (ARSW).
 
 1. **Clona el repositorio:**
 	```bash
-	git clone https://github.com/Juan-Jose-D/RepasoARSWTercio1.git
-	cd Repaso
+	git clone https://github.com/Juan-Jose-D/ARSW-Parcial-T1.git
+	cd ARSW-ParcialT1
 	```
 
 2. **Compila y ejecuta con Maven:**
@@ -46,15 +54,6 @@ El proyecto está construido con **Spring Boot** y sigue una arquitectura de cap
 
 ---
 
-
-### Ejemplos incluidos
-
-- Impresión de números usando hilos (pares/impares) y locks.
-- Ejemplo de Productor-Consumidor usando `wait` y `notify`.
-- Consumo de APIs externas (GET y POST) desde el frontend y backend.
-- Procesamiento de datos concurrente y visualización en la web.
-
----
 
 
 ## Autor

@@ -8,6 +8,13 @@
 ## Descripción General
 
 Proyecto del primer parcial de Arquitectura de Software (ARSW).
+EL proyecto está correctamente desplegado en azure, el link es:
+
+[parcialt1-c4a9fhecf8b9aseq.canadacentral-01.azurewebsites.net](parcialt1-c4a9fhecf8b9aseq.canadacentral-01.azurewebsites.net)
+
+Y el repositorio del back estático es:
+
+[https://github.com/Juan-Jose-D/ARSW-Static-back](https://github.com/Juan-Jose-D/ARSW-Static-back)
 
 ---
 

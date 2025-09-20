@@ -15,10 +15,92 @@ El proyecto llama a una API externa y puede enviar diferentes parámetros. Como 
 Esto se hace mediante un filtro en el app.js, la idea es enviar por parámetro a la API lo que la persona pone en la página web, es extensible para todos los parámetros que sean necesarios.
 
 
-
-
 ![alt text](/img/image.png)
 
+
+Se implementó de esta manera:
+
+```js
+function consumirApiExterna() {
+	event.preventDefault();
+	const symbol = document.getElementById('id').value;
+	const base_url = 'https://www.alphavantage.co/query?';
+
+	document.getElementById('comboBox').addEventListener('change', function() {
+		document.getElementById('comboBox').value = this.functionType;
+	});
+
+	const funtion = 'function=' +  document.getElementById('comboBox').value || 'TIME_SERIES_INTRADAY&' + '&';
+	const urlsymbol = 'symbol=' + symbol || 'IBM';
+	const interval = '&interval=5min&month=2009-01&';
+	const outputsize = 'outputsize=full&';
+	const apikey = 'apikey=demo' ;
+
+
+	fetch(base_url + funtion + urlsymbol + interval + outputsize + apikey)
+		.then(response => response.json())
+		.then(data => {
+			const contenedor = document.getElementById('api-externa');
+			contenedor.innerHTML = '<h3>API externa:</h3>';
+			const div = document.createElement('div');
+
+			const objetoJS = JSON.parse(data);
+			const metaData = objetoJS["Meta Data"];
+			const TimeSeries = objetoJS["Time Series (5min)"]; 
+
+			console.log(metaData);
+			console.log(TimeSeries);
+
+			div.textContent = metaData;
+			div.textContent = TimeSeries;
+			contenedor.appendChild(div);
+		})
+		.catch(error => {
+			console.log(" ");
+		});
+}
+```
+
+También se implmentó un servicio de backend que procesa solicitudes concurrentemente mediante el uso de hilos.
+
+```java
+@Service
+public class ConcurrentService {
+
+    private final RestTemplate restTemplate;
+    
+    public ConcurrentService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public void realizarSolicitudesConcurrentes(){
+        Thread solicitud = new Thread(() -> {
+            procesarDatosExterna();
+        });
+
+        solicitud.start();
+
+    }
+
+    public CompletableFuture<List<String>> procesarDatosExterna() {
+        return CompletableFuture.supplyAsync(() -> {
+            String url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo";
+            
+            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+
+            List<Map<String, Object>> timeSeries = (List<Map<String, Object>>) response.get("Time Series (5min)");
+
+            List<String> valores = new ArrayList<>();
+            if (timeSeries != null) {
+                for (Map<String, Object> element : timeSeries) {
+                    valores.add((String) element.get("Meta Data"));
+                }
+            }
+            return valores;
+        });
+    }
+}
+```
 
 ## Ejecución del proyecto
 

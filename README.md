@@ -12,7 +12,7 @@ EL proyecto está correctamente desplegado en azure, el link es:
 
 [https://parcialt1-c4a9fhecf8b9aseq.canadacentral-01.azurewebsites.net/](https://parcialt1-c4a9fhecf8b9aseq.canadacentral-01.azurewebsites.net/)
 
-Y el repositorio del back estático es:
+Y el repositorio del back es:
 
 [https://github.com/Juan-Jose-D/ARSW-Static-back](https://github.com/Juan-Jose-D/ARSW-Static-back)
 
